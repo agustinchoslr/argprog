@@ -84,8 +84,8 @@
   .progress.yellow .progress-bar {
     border-color: #fdba04;
   } */
-  .progress {
-    animation: loading-3 1.8s ;
+  .progress-bar-striped {
+    animation: loading-3 10.8s ;
   }
   /* .progress.yellow .progress-left .progress-bar {
     animation: none;
@@ -113,7 +113,7 @@
   @keyframes loading-3 {
     0% {
       -webkit-transform: rotate(0deg);
-      transform: rotate(0deg);
+      transform: rotate(50deg);
     }
     100% {
       -webkit-transform: rotate(0deg);
