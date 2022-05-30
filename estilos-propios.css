@@ -1,0 +1,21 @@
+body{
+    background: rgb(34,193,195);
+    background: linear-gradient(135deg, rgba(34,193,195,1) 23%, rgba(253,247,45,1) 100%); 
+  }
+  #img-perfil{
+    -webkit-transform: translateX(30%) translateY(-150px);
+    transform: translateX(30%) translateY(-150px)
+  }
+  #redondel-progreso {
+    height: inherit; z-index: -3; align-content: center; margin: 0;
+  }
+#id-progreso{
+    position: absolute; float: inherit; align-self: center; z-index: 9; align-content: center; padding: 1% 1% 1% 1%; margin: 3% 3% 3% 3%; vertical-align: 50%; text-align: center; color: aliceblue;
+}
+#progreso-cantidad{
+      height: inherit; padding:25%; z-index: 2;
+}
+
+#quotation{
+    background-image: url(/img/quotation2.png); background-repeat: no-repeat; background-size: contain;
+}
