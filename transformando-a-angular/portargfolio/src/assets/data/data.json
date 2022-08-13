@@ -1,0 +1,77 @@
+{
+    "name": "Agustín Juan (JsonData)",
+    "backImage": "https://www.designwizard.com/wp-content/uploads/2018/04/c573dbe0-bfc0-11e7-a9ab-f74f90e4a6a3.jpg",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoYcy8I0Q-X65kDidITtwIgXk2iG8-9UzNTA&usqp=CAU",
+    "position": "Un intento de desarrollador",
+    "company": {
+        "name": "CONICET",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Logo_CONICET.jpeg",
+        "url": "#"
+    },
+    "school": {
+        "name": "Universidad de BsAS",
+        "img": "https://filosofia.net/cdf/uhm/uba.png",
+        "url": "#"
+    },
+    "location": "BsAs (Argentina)",
+    "about": "Matemático, físico e informático argentino",
+    "experience":[{
+        "position": "Backend Developer",
+        "company": "Pixar",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Pixar.svg/1280px-Pixar.svg.png",
+        "mode": "Jornada Parcial",
+        "start": "mar 2019",
+        "end": "actualidad",
+        "timeElapsed": "2 años y 6 meses"
+    }],
+    "education": [{
+        "school": "UTN",
+        "title": "Ingeniería",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/FIUBA_gris_transparente.png/275px-FIUBA_gris_transparente.png",
+        "career": "Sistemas Computacionales",
+        "score": 0,
+        "start": "2019",
+        "end": "2023"
+    },
+{"school": "Centro de enseñanza Técnica I",
+    "title": "Tecnólogo",
+    "img": "https://w7.pngwing.com/pngs/253/48/png-transparent-technology-labor-engineering-technologist-labour-law-technology-electronics-photography-logo.png",
+    "career": "Desarrollo de Software",
+    "start": "2014",
+    "end": "2018"
+},
+{
+"school": "Escuela Secundaria Técnica",
+"title": "Técnico",
+"img": "https://w7.pngwing.com/pngs/204/901/png-transparent-secondary-education-national-secondary-school-escuela-secundaria-tecnica-40-school-logo-university-teaching.png",
+"career": "Electrónica, comunicación y la mar en coche",
+"score":0,
+"start": "2012",
+"end": "2014"
+}
+],
+"aptitudes":[{
+    "name": "Resolución de problemas",
+    "progress": 75,
+    "confirms": 2,
+    "confirmsNames": [{
+        "name": "Nikolai Emmanuel Bayro"
+        }]
+    },
+    {
+        "name": "Diseño de Sistemas",
+        "confirms": 3,
+        "confirmsNames": [{
+            "name": "Nikolai Emmanuel Bayro"
+        }]
+    }
+        ],
+        "achievements": [{
+            "name": "Huaro App"
+        },
+    {
+        "name": "Lanterns 19/09"
+    }
+]
+    }
+ 
