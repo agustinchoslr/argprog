@@ -9,6 +9,7 @@ import { ExperienciaYEducacionComponent } from './componentes/experiencia-y-educ
 import { AptitudesComponent } from './componentes/aptitudes/aptitudes.component';
 import { ProyectosLogrosComponent } from './componentes/proyectos-logros/proyectos-logros.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PersonaService } from './servicios/persona.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [PersonaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
