@@ -1,9 +1,15 @@
 <div class="container">
 <main class="row">
-    <div class="col-4 col-md-6 col-sm-6" id="img-perfil">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoYcy8I0Q-X65kDidITtwIgXk2iG8-9UzNTA&usqp=CAU" 
-class="border img-fluid rounded-circle" width="250" height="auto"/><br><h4 *ngFor="let persona of personas"> {{persona.name}} </h4><br></div>
-<div class="col-8 col-sm-6 col-md-6" id="quotation" *ngFor="let persona of personas"><br><br><br><br>{{persona.shortDescription}}es este?sdakdakjsbda kjdbakjdbsdkabdka bsdkajbdakbjdssa <br><br><br><br><br><br><br>abcde<br></div>
+    <div class="col-4 col-md-6 col-sm-6" id="img-perfil" *ngFor="let persona of personas">
+<img src="{{persona?.profileImageUrl}}" 
+class="border img-fluid rounded-circle" width="250" height="auto"/>
+
+<br>
+<h4 *ngFor="let persona of personas"> {{persona?.name}}</h4>
+<br><div style="color: #D2D7D5;"><a class="btn" data-placement="top" data-origina-title="Edit"><i class="fa-solid fa-pen-to-square"></i><span> Editar sección</span></a></div>
+</div>
+<div class="col-8 col-sm-6 col-md-6" id="quotation" *ngFor="let persona of personas"><br><br><br><br>{{persona?.shortDescription}} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe modi assumenda cum sunt odio dolorem culpa voluptate, id est quia dignissimos pariatur distinctio? Molestias similique, molestiae iusto harum impedit blanditiis! <br><br><br><br><br><br><br>abcde<br></div>
+
 <hr>
 </main> 
 </div>
