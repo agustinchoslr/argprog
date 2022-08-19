@@ -10,6 +10,7 @@ import { AptitudesComponent } from './componentes/aptitudes/aptitudes.component'
 import { ProyectosLogrosComponent } from './componentes/proyectos-logros/proyectos-logros.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PersonaService } from './servicios/persona.service';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,18 @@ import { PersonaService } from './servicios/persona.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    // Specify ng-circle-progress as an import
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300,
+      
+    })
   ],
   providers: [PersonaService],
   bootstrap: [AppComponent]
