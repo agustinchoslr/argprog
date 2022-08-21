@@ -1009,4 +1009,60 @@ body {
   .rounded-circle {
     border-radius: 50% !important;
   }
+
+  .img-thumbnail{
+    padding:.1rem;
+    background-color:#fff;
+    border-radius:.25rem;
+    max-width:auto;
+    max-height:95px;
+    }
+
+    .rounded{
+      border-radius:.25rem!important
+    }
+
+    .float-start{
+      float:left!important
+    }
+
+    .experiencia {
+      
+      background: rgb(255,255,255);
+background: radial-gradient(circle, rgba(255,255,255,0.5018382352941176) 0%,
+ rgba(249,252,251,0.3617822128851541) 60%, rgba(255,255,255,0) 100%);
+
+    }
+
+    .border-start-0{
+      border-left:0!important
+    }
+
+    .text-start{
+      text-align:left!important
+    }
+    .text-end{
+      text-align:right!important
+    }
+    .text-center{
+      text-align:center!important
+    }
+    .conjunto {
+      display: flex;
+      justify-content: space-between;
+    }
+    .text-muted{
+      color:#6c757d!important
+    }
+    .fs-5{
+      font-size:1.04rem!important
+    }
+
+    .border-end-0{
+      border-right:0!important
+    }
+    
+    .text-decoration-underline{
+      text-decoration:underline!important
+    }
   /*# sourceMappingURL=custom.css.map */
