@@ -15,55 +15,24 @@
     </div>-->
 
       <div>             
-                <span>  
+                <span *ngFor="let skill of skills">  
          <circle-progress
-    [percent]="85"
+    [percent]=$any(skill?.percent)
     [radius]="100"
     [outerStrokeWidth]="16"
     [innerStrokeWidth]="8"
     [outerStrokeColor]="'#1DF9BA'"
-    [innerStrokeColor]="'#397DFC'"
+    [innerStrokeColor]="'#C7E596'"
     [animation]="true"
     [animationDuration]="300"
+    subtitle={{skill?.skillName}}
+    [subtitleColor]="'red'"
+    [subtitleFontSize]="'18'"
   >
 </circle-progress>
         <a style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Delete"><i class="fa-solid fa-eraser"></i></a>
         <img src="https://i.postimg.cc/qRbZtcSz/linea-separadora2.png">
-</span>
-
-<span>  
-               
-<circle-progress
-[percent]="85"
-[radius]="100"
-[outerStrokeWidth]="16"
-[innerStrokeWidth]="8"
-[outerStrokeColor]="'#1DF9BA'"
-[innerStrokeColor]="'#C7E596'"
-[animation]="true"
-[animationDuration]="300"
-[subtitle]="'title'"
-[subtitleColor]="'red'"
-[subtitleFontSize]="'18'"
->
-</circle-progress>
-<a style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Delete"><i class="fa-solid fa-eraser"></i></a>
-<img src="https://i.postimg.cc/qRbZtcSz/linea-separadora2.png">
-</span>
-
-<circle-progress
-[percent]="85"
-[radius]="100"
-[outerStrokeWidth]="16"
-[innerStrokeWidth]="8"
-[outerStrokeColor]="'#1DF9BA'"
-[innerStrokeColor]="'#C7E596'"
-[animation]="true"
-[animationDuration]="300"
->
-</circle-progress>
-
-</div>             
+</span></div>             
 
 
     <div class="row">

@@ -8,19 +8,19 @@
             
         </h6></div>
         <p class="col-12"><small><i>La mayoría de estos proyectos se han realizado este año en diferentes cursos de programación:</i></small></p></div>
-        
-        <div class="col-4"><span class="text-start fs-5"><strong>Título 1 </strong>
-        </span> - <span class="text-end text-muted"><i> anio</i>
+    <div *ngFor="let proyecto of proyectos">
+        <div class="col-4"><span class="text-start fs-5"><strong>{{proyecto?.projectName}} </strong>
+        </span> - <span class="text-end text-muted"><i> {{proyecto?.anio}}</i>
             <a style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>
             <a style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Delete"><i class="fa-solid fa-eraser"></i></a>
         </span>
         </div>
         <div class="row">
-        <div class="col-8 border border-end-0 experiencia" style="display: flex;align-items: center;justify-content: center;"><p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio earum, veniam porro voluptas recusandae consectetur sequi molestias animi eum dolor sed laboriosam ad, dolores facilis nulla, rerum quaerat cupiditate. Sapiente! </p>
-            <button class="btn btn-success" style="display: flex; flex-direction: column; height: 100%; justify-content: center;" >Visualizar proyecto</button></div> <div class="col-4 border border-start-0">
-            <img src="https://fondosmil.com/fondo/9856.jpg" class="col-12 rounded mx-auto d-block" alt="Imagen de proyecto"> </div></div>
+        <div class="col-8 border border-end-0 experiencia" style="display: flex;align-items: center;justify-content: center;"><p class="text-center">{{proyecto?.descripcion}} </p>
+            <button class="btn btn-success" style="display: flex; flex-direction: column; height: 100%; justify-content: center;"><a href="{{proyecto?.link}}" style="color: white; text-decoration:none">Visualizar proyecto</a></button></div> <div class="col-4 border border-start-0">
+            <img src="{{proyecto?.img}}" class="col-12 rounded mx-auto d-block" alt="Imagen de proyecto"> </div></div>
         <br>
-
+    </div>
         <div class="col-4"><span class="text-start fs-5"><strong>Título 1 </strong>
         </span> - <span class="text-end text-muted"><i> anio</i></span></div>
         <div class="row">

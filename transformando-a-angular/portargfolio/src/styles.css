@@ -1023,7 +1023,11 @@ body {
     }
 
     .float-start{
-      float:left!important
+      float:left!important;
+      margin-top:0.6em; 
+      margin-right:0.5em;
+      max-width:10em;
+      max-height: 10em;
     }
 
     .experiencia {

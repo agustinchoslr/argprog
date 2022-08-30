@@ -7,22 +7,16 @@
     </h6> 
 
     <div class="row">
-        <div class="col-6 experiencia"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg" class="rounded float-start img-thumbnail" alt="Imagen de la Empresa">
-            <div class="conjunto"><span class="text-start">1989 - 2009</span>
-                <span class="text-end">Empresa</span></div>
+        <div class="col-6 experiencia border" *ngFor="let experiencia of experiencias"><img src="{{experiencia?.img}}" class="rounded float-start img-thumbnail" alt="Imagen de la Empresa">
+            <div class="conjunto"><span class="text-start">{{experiencia?.anioInicio}} - {{experiencia?.anioFin}}</span>
+                <span class="text-end">{{experiencia?.empresa}}</span></div>
             <div class="text-center">
                 <a style="color: #414242;" class="btn" data-placement="top" data-origina-title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>        
-            <strong>Experiencia</strong>
+            <strong>{{experiencia?.cargo}}</strong>
                 <a style="color: #414242;" class="btn" data-placement="top" data-origina-title="Delete"><i class="fa-solid fa-eraser"></i></a>                    
             </div>
-            <div><span> Descripción</span></div>
-        </div>
-    <div class="col-6 border">texto</div>
-    <div class="col-6 border">foto</div>
-    <div class="col-6 border">texto</div>
-    <div class="col-6 border">foto</div>
-    <div class="col-6 border">texto</div>
-</div>
+            <div><span> {{experiencia?.descripcion}}</span></div>
+        </div></div>
 
 <hr>
 
@@ -33,23 +27,16 @@
 </h6> 
 
 <div class="row">
-    <div class="col-6 experiencia"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg" class="rounded float-start img-thumbnail" alt="Imagen de la institución">
-        <div class="conjunto"><span class="text-start">1989 - 2009</span>
-            <span class="text-end">Inst. Pato</span></div>
+    <div class="col-6 experiencia border"  *ngFor="let educacion of educaciones"><img src="{{educacion?.img}}" class="rounded float-start img-thumbnail" alt="Imagen de la institución">
+        <div class="conjunto"><span class="text-start">{{educacion?.anioInicio}} - {{educacion?.anioFin}}</span>
+            <span class="text-end">{{educacion?.institucion}}</span></div>
         <div class="text-center">
                         <a style="color: #414242;" class="btn" data-placement="top" data-origina-title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>   
-            <strong>Carreera</strong>        
+            <strong>{{educacion?.carrera}}</strong>        
                         <a style="color: #414242;" class="btn" data-placement="top" data-origina-title="Delete"><i class="fa-solid fa-eraser"></i></a> 
             </div>
-        <div> Descripción</div>
-    </div>
-
-    <div class="col-6 border"><span class="text-start">anio inicio - anio fin</span></div>
-    <div class="col-6 border border-start-0"><img src="https://getbootstrap.com/docs/4.5/assets/brand/bootstrap-social-logo.png" class="rounded float-start img-thumbnail" alt="..."> foto</div>
-    <div class="col-6 border">texto</div>
-    <div class="col-6 border border-start-0"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg" class="rounded float-start img-thumbnail" alt="..."> foto</div>
-    <div class="col-6 border">texto</div>
-</div>
+        <div> {{educacion?.descripcion}}</div>
+    </div></div>
 
 <hr>
 </section>
