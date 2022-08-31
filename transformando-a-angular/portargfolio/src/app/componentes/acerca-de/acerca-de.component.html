@@ -6,7 +6,11 @@
 
 <br>
         <h4 *ngFor="let persona of personas"> {{persona?.name}}</h4>
-        <br><div style="color: #D2D7D5;" (click)="onOpenModal(persona, 'edit')"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#updatePersonaModal"><a data-placement="top" data-origina-title="Edit"><i class="fa-solid fa-pen-to-square"></i><span> Editar sección</span></a></button></div>
+        <br><div style="color: #D2D7D5;" (click)="onOpenModal(persona, 'edit')"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#updatePersonaModal"><a data-placement="top" data-origina-title="Edit"><i class="fa-solid fa-pen-to-square"></i><span> Editar sección</span></a></button>
+        
+          <p> <br>
+<span><a href="http://www.facebook.com/agustinchoslr"><img src="https://www.pngmart.com/files/15/Circle-Facebook-Logo-PNG-Pic.png" class="border img-fluid rounded-circle" width="74px"/></a> | <a href="https://linkedin.com/in/agustinchoslr"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" class="border img-fluid rounded-circle" width="74px"/></a> | <a href="https://github.com/agustinchoslr"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" class="border img-fluid rounded-circle" width="74px"/></a></span></p>
+        </div>
     </div>
     <div class="col-8 col-sm-6 col-md-6" id="quotation" *ngFor="let persona of personas"><br><br><br><br>{{persona?.shortDescription}} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe modi assumenda cum sunt odio dolorem culpa voluptate, id est quia dignissimos pariatur distinctio? Molestias similique, molestiae iusto harum impedit blanditiis! <br><br><br><br><br><br><br>abcde<br></div>
 
