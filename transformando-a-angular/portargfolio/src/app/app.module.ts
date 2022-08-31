@@ -11,6 +11,7 @@ import { ProyectosLogrosComponent } from './componentes/proyectos-logros/proyect
 import { HttpClientModule } from '@angular/common/http';
 import { PersonaService } from './servicios/persona.service';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     // Specify ng-circle-progress as an import

@@ -1,5 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
+import { Container } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Persona } from 'src/app/servicios/persona';
 import { PersonaService } from 'src/app/servicios/persona.service';
 
@@ -11,6 +13,7 @@ import { PersonaService } from 'src/app/servicios/persona.service';
 
 export class AcercaDeComponent implements OnInit {
   public personas: Persona[] | undefined;
+  public editPersona: Persona | undefined;
 
   constructor(private personaService: PersonaService) {}
 
@@ -29,7 +32,37 @@ export class AcercaDeComponent implements OnInit {
     }
     );
   }
+
+  public onUpdatePersona(persona: Persona): void{
+    this.personaService.updatePersona(persona).subscribe(
+      (response: Persona)=> {
+        console.log(response);
+        this.getPersonas();
+      },
+      (error: HttpErrorResponse)=> {
+        alert(error.message);
+      }
+    );
+  }
+
+  public onOpenModal(persona: Persona, mode: string): void {
+    const container = document.getElementById('contenedor-persona');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-toggle', 'modal');
+    if (mode === 'add') {
+      button.setAttribute('data-target', '#addPersonaModal');
+    }
+  if (mode === 'edit') {
+    this.editPersona = persona;
+    button.setAttribute('data-target', '#updatePersonaModal');
+  }
+  if (mode === 'delete') {
+    button.setAttribute('data-target', '#deletePersonaModal');
+  }
+  container?.appendChild(button);
+  button.click();
+  }
 }
-
-
 

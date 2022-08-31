@@ -1,15 +1,74 @@
-<div class="container">
-<main class="row">
-    <div class="col-4 col-md-6 col-sm-6" id="img-perfil" *ngFor="let persona of personas">
-<img src="{{persona?.profileImageUrl}}" 
-class="border img-fluid rounded-circle" width="250" height="auto"/>
+<div class="container" id="contenedor-persona">
+    <main class="row">
+        <div class="col-4 col-md-6 col-sm-6" id="img-perfil" *ngFor="let persona of personas">
+            <img src="{{persona?.profileImageUrl}}" 
+            class="border img-fluid rounded-circle" width="250" height="auto"/>
 
 <br>
-<h4 *ngFor="let persona of personas"> {{persona?.name}}</h4>
-<br><div style="color: #D2D7D5;"><a class="btn" data-placement="top" data-origina-title="Edit"><i class="fa-solid fa-pen-to-square"></i><span> Editar sección</span></a></div>
-</div>
-<div class="col-8 col-sm-6 col-md-6" id="quotation" *ngFor="let persona of personas"><br><br><br><br>{{persona?.shortDescription}} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe modi assumenda cum sunt odio dolorem culpa voluptate, id est quia dignissimos pariatur distinctio? Molestias similique, molestiae iusto harum impedit blanditiis! <br><br><br><br><br><br><br>abcde<br></div>
+        <h4 *ngFor="let persona of personas"> {{persona?.name}}</h4>
+        <br><div style="color: #D2D7D5;" (click)="onOpenModal(persona, 'edit')"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#updatePersonaModal"><a data-placement="top" data-origina-title="Edit"><i class="fa-solid fa-pen-to-square"></i><span> Editar sección</span></a></button></div>
+    </div>
+    <div class="col-8 col-sm-6 col-md-6" id="quotation" *ngFor="let persona of personas"><br><br><br><br>{{persona?.shortDescription}} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe modi assumenda cum sunt odio dolorem culpa voluptate, id est quia dignissimos pariatur distinctio? Molestias similique, molestiae iusto harum impedit blanditiis! <br><br><br><br><br><br><br>abcde<br></div>
 
 <hr>
 </main> 
 </div>
+
+<!-- Modal update Persona -->
+<div class="modal fade" id="updatePersonaModal" tabindex="-1" aria-labelledby="updatePersonaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updatePersonaModalLabel">Editar Persona</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form #editForm="ngForm">
+     
+            <input type="hidden" ngModel="{{editPersona?.id}}" name="id" class="form-control" id="id">
+
+               
+            <div class="form-group">
+                <label for="name">NOMBRE</label>
+                <input type="text" ngModel="{{editPersona?.name}}" name="name" class="form-control" id="name" placeholder="Nombre" required>
+            </div>
+                        
+            <div class="form-group">
+                <label for="email">Correo Electrónico</label>
+                <input ngModel="{{editPersona?.email}}" type="text" name="email" class="form-control" id="email" placeholder="Ingrese su email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="profileImageUrl">URL DE IMAGEN DE PERFIL</label>
+                <input ngModel="{{editPersona?.profileImageUrl}}" type="text" name="profileImageUrl" class="form-control" id="profileImageUrl" placeholder="URL de foto de perfil" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="shortDescription">Descripción</label>
+                <input type="text" ngModel="{{editPersona?.shortDescription}}" name="shortDescription" class="form-control" id="shortDescription" placeholder="Ingresa tu descripción corta (250 caracteres)" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="jobTitle">Ingresa tu subtítulo</label>
+                <input type="text" ngModel="{{editPersona?.jobTitle}}" name="jobTitle" class="form-control" id="jobTitle" placeholder="Ingresa tu profesión o cargo a mostrar" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="fbContact">Link de Facebook</label>
+                <input type="text" ngModel="{{editPersona?.fbContact}}" name="fbContact" class="form-control" id="fbContact" placeholder="Tu URL de Facebook" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="linkedinContact">Tu linkedin</label>
+                <input type="text" ngModel="{{editPersona?.linkedinContact}}" name="linkedinContact" class="form-control" id="linkedinContact" placeholder="Ingresa tu link de Linkedin" required>
+            </div>
+            
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="edit-persona-form" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button (click)="onUpdatePersona(editForm.value)"  type="submit" class="btn btn-primary">Guardar cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>
