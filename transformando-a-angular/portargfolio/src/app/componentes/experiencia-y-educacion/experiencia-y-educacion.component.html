@@ -20,21 +20,21 @@
 </section>
 
 <hr>
-<section>
+<section id="educaciones-button-container">
 <h6>Educación 
     <!-- <a style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Edit"><i class="fa-solid fa-pen-to-square"></i></a> -->
         
-    <a style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Add"><i class="fa-regular fa-square-plus"></i></a>
+    <a style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Add" (click)="onOpenModalEduc(null!, 'add')" data-bs-toggle="modal" data-bs-target="#addEducacionModal"><i class="fa-regular fa-square-plus"></i></a>
 </h6> 
 
 <div class="row">
     <div class="col-6 experiencia border"  *ngFor="let educacion of educaciones"><img src="{{educacion?.img}}" class="rounded float-start img-thumbnail" alt="Imagen de la institución">
         <div class="conjunto"><span class="text-start">{{educacion?.anioInicio}} - {{educacion?.anioFin}}</span>
             <span class="text-end">{{educacion?.institucion}}</span></div>
-        <div class="text-center">
-                        <a style="color: #414242;" class="btn" data-placement="top" data-origina-title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>   
+        <div class="text-center" (click)="onOpenModalEduc(educacion, 'edit')">
+                        <a style="color: #414242;" class="btn" data-placement="top" data-origina-title="Edit" data-bs-toggle="modal" data-bs-target="#updateEducacionModal"><i class="fa-solid fa-pen-to-square"></i></a>   
             <strong>{{educacion?.carrera}}</strong>        
-                        <a style="color: #414242;" class="btn" data-placement="top" data-origina-title="Delete"><i class="fa-solid fa-eraser"></i></a> 
+                        <a style="color: #414242;" class="btn" data-placement="top" data-origina-title="Delete" (click)="onOpenModalEduc(educacion, 'delete')"  data-bs-toggle="modal" data-bs-target="#deleteEducacionModal"><i class="fa-solid fa-eraser"></i></a> 
             </div>
         <div> {{educacion?.descripcion}}</div>
     </div></div>
@@ -93,7 +93,7 @@
     </form>
         </div>
         <div class="modal-footer">
-          <button type="button" id="exp-button-close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" id="exp-button-close" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
           <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Confirmar agregado</button>
         </div>
       </div>
@@ -169,6 +169,135 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, no voy a borrarlo</button>
           <button (click)="onDeleteExperiencia(deleteExperiencia?.id!)" type="button" class="btn btn-danger">Sí, quiero borrarlo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal ADD educación -->
+<div class="modal fade" id="addEducacionModal" tabindex="-1" aria-labelledby="addEducacionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addEducacionModalLabel">Agregado de cursos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form #addEducForm="ngForm" (ngSubmit)="onAddEducacion(addEducForm)">
+
+            
+                <div class="form-group">
+                    <label for="institucion">Institucion</label>
+                    <input type="text" ngModel name="institucion" class="form-control" id="institucion" placeholder="Institucion donde se cursó" required>
+                </div>
+                     
+                <input type="hidden" ngModel name="id" class="form-control" id="id">
+
+                <div class="form-group">
+                    <label for="img">URL de imagen de la institucion:</label>
+                    <input type="text" ngModel name="img" class="form-control" id="img" placeholder="Imagen representativa o logo del curso" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="carrera">Carrera</label>
+                    <input type="text" ngModel name="carrera" class="form-control" id="carrera" placeholder="Nombre del curso/carrera/capacitación" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <input type="text" ngModel name="descripcion" class="form-control" id="descripcion" placeholder="Ingresa tu descripción corta (250 caracteres)" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="anioInicio">Ingresa año de inicio</label>
+                    <input type="text" ngModel name="anioInicio" class="form-control" id="anioInicio" placeholder="Ingresa el año de comienzo de la experiencia" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="anioFin">Año de finalización</label>
+                    <input type="text" ngModel name="anioFin" class="form-control" id="anioFin" placeholder="Año de fin de la experiencia" required>
+                </div>
+
+            
+    </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="educ-button-close" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Confirmar agregado</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Modal Edit educacion -->
+    <div class="modal fade" id="updateEducacionModal" tabindex="-1" aria-labelledby="updateEducacionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="updateEducacionModalLabel">Edición de carrera: "{{editEducacion?.carrera}}" </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form #editForm="ngForm">
+    
+                    <div class="form-group">
+                        <label for="institucion">Institucion</label>
+                        <input type="text" ngModel="{{editEducacion?.institucion}}" name="institucion" class="form-control" id="institucion" placeholder="Instituto donde cursaste" required>
+                    </div>
+                         
+                    <input type="hidden" ngModel="{{editEducacion?.id}}" name="id" class="form-control" >
+    
+                    <div class="form-group">
+                        <label for="img">URL de imagen de la institucion:</label>
+                        <input ngModel="{{editEducacion?.img}}" type="text" name="img" class="form-control" id="img" placeholder="Imagen representativa o logo del trabajo" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="carrera">Carrera</label>
+                        <input ngModel="{{editEducacion?.carrera}}" type="text" name="carrera" class="form-control" id="carrera" placeholder="Nombre del curso/capacitación/carrera" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="descripcion">Descripción</label>
+                        <input type="text" ngModel="{{editEducacion?.descripcion}}" name="descripcion" class="form-control" id="descripcion" placeholder="Ingresa la descripción corta (250 caracteres)" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="anioInicio">Ingresa año de inicio</label>
+                        <input type="text" ngModel="{{editEducacion?.anioInicio}}" name="anioInicio" class="form-control" id="anioInicio" placeholder="Ingresa el año de comienzo de la carrera" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="anioFin">Año de finalización</label>
+                        <input type="text" ngModel="{{editEducacion?.anioFin}}" name="anioFin" class="form-control" id="anioFin" placeholder="Año de fin del cursado" required>
+                    </div>
+    
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button (click)="onUpdateExperiencia(editForm.value)" type="button" class="btn btn-primary">Guardar cambios</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+  <!-- Modal DELETE experiencia -->
+
+  <div class="modal fade" id="deleteEduacionModal" tabindex="-1" aria-labelledby="deleteEduacionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteEduacionModalLabel">¡ADVERTENCIA!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Confirma borrado de la experiencia titulada {{deleteEducacion?.carrera}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, no voy a borrarla</button>
+          <button (click)="onDeleteEducacion(deleteEducacion?.id!)" type="button" class="btn btn-danger">Sí, quiero borrarla</button>
         </div>
       </div>
     </div>

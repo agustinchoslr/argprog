@@ -13,9 +13,11 @@ import { NgForm } from '@angular/forms';
 })
 export class ExperienciaYEducacionComponent implements OnInit {
   public experiencias: Experiencia[] | undefined;
-  public editExperiencia: Experiencia | undefined;
-    public educaciones: Educacion[] | undefined;
+  public editExperiencia: Experiencia | undefined;  
   public deleteExperiencia: Experiencia | undefined;
+    public educaciones: Educacion[] | undefined;
+    public editEducacion: Educacion | undefined;  
+    public deleteEducacion: Educacion | undefined;
 
   constructor(
     private experienciaService: ExperienciaService, 
@@ -34,6 +36,18 @@ export class ExperienciaYEducacionComponent implements OnInit {
 (error:HttpErrorResponse) => {
   alert(error.message);
 },
+    );
+  }
+ 
+
+  public getEducaciones(): void {
+    this.educacionService.getEducaciones().subscribe(
+(response: Educacion[]) => {
+  this.educaciones = response;
+},
+(error:HttpErrorResponse) => {
+  alert(error.message);
+}
     );
   }
 
@@ -58,12 +72,48 @@ export class ExperienciaYEducacionComponent implements OnInit {
     button.click();
   }
 
+  
+  public onOpenModalEduc(educacion: Educacion, mode:string): void {
+    const container = document.getElementById('educaciones-button-container');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-toggle', 'modal');
+    if (mode === 'add') {      
+    button.setAttribute('data-target', '#addEducacionModal');
+    }
+    if (mode === 'edit') {      
+      this.editEducacion = educacion;
+      button.setAttribute('data-target', '#updateEducacionModal');
+      }
+      if (mode === 'delete') {     
+        this.deleteEducacion = educacion; 
+        button.setAttribute('data-target', '#deleteEducacionModal');
+        }
+    container?.appendChild(button);
+    button.click();
+  }
+
   public onAddExperiencia(addform: NgForm): void  {
     document.getElementById('exp-button-close')?.click();
     this.experienciaService.addExperiencia(addform.value).subscribe(
       (response : Experiencia) => {
         console.log(response);
         this.getExperiencias();
+      },
+      (error : HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
+  
+  public onAddEducacion(addform: NgForm): void  {
+    document.getElementById('educ-button-close')?.click();
+    this.educacionService.addEducacion(addform.value).subscribe(
+      (response : Educacion) => {
+        console.log(response);
+        this.getEducaciones();
       },
       (error : HttpErrorResponse) => {
         alert(error.message);
@@ -83,6 +133,19 @@ export class ExperienciaYEducacionComponent implements OnInit {
     );
   }
 
+  
+  public onUpdateEducacion(educacion: Educacion): void  {
+    this.educacionService.updateEducacion(educacion).subscribe(
+      (response : Educacion) => {
+        console.log(response);
+        this.getEducaciones();
+      },
+      (error : HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
   public onDeleteExperiencia(experienciaId: number): void  {
     this.experienciaService.deleteExperiencia(experienciaId).subscribe(
       (response : void) => {
@@ -95,14 +158,16 @@ export class ExperienciaYEducacionComponent implements OnInit {
     );
   }
 
-  public getEducaciones(): void {
-    this.educacionService.getEducaciones().subscribe(
-(response: Educacion[]) => {
-  this.educaciones = response;
-},
-(error:HttpErrorResponse) => {
-  alert(error.message);
-}
+  
+  public onDeleteEducacion(educacionId: number): void  {
+    this.educacionService.deleteEducacion(educacionId).subscribe(
+      (response : void) => {
+        console.log(response);
+        this.getEducaciones();
+      },
+      (error : HttpErrorResponse) => {
+        alert(error.message);
+      }
     );
   }
 }
