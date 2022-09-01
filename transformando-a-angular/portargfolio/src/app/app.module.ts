@@ -12,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { PersonaService } from './servicios/persona.service';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './user-security/auth/login.component';
+import { MenuComponent } from './user-security/menu/menu.component';
+import { interceptorProvider } from './user-security/interceptors/p-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { FormsModule } from '@angular/forms';
     AcercaDeComponent,
     ExperienciaYEducacionComponent,
     AptitudesComponent,
-    ProyectosLogrosComponent
+    ProyectosLogrosComponent,
+    LoginComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,7 @@ import { FormsModule } from '@angular/forms';
       
     })
   ],
-  providers: [PersonaService],
+  providers: [PersonaService, interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
