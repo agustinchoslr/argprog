@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Persona } from 'src/app/servicios/persona';
 import { PersonaService } from 'src/app/servicios/persona.service';
+import { TokenService } from 'src/app/user-security/servicios/token.service';
 
 @Component({
   selector: 'app-acerca-de',
@@ -15,11 +16,19 @@ export class AcercaDeComponent implements OnInit {
   public personas: Persona[] | undefined;
   public editPersona: Persona | undefined;
 
-  constructor(private personaService: PersonaService) {}
+  isLogged = false;
+
+  constructor(private personaService: PersonaService,
+    private tokenService: TokenService) {}
 
   ngOnInit() {
     this.getPersonas();
-    
+    if (this.tokenService.getToken()){
+      this.isLogged = true;
+    }
+    else {
+      this.isLogged = false;
+    }
   }
 
   public getPersonas(): void {

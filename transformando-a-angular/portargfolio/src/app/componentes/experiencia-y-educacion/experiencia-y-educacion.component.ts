@@ -5,6 +5,7 @@ import { Experiencia } from 'src/app/servicios/experiencia';
 import { Educacion } from 'src/app/servicios/educacion';
 import { EducacionService } from 'src/app/servicios/educacion.service';
 import { NgForm } from '@angular/forms';
+import { TokenService } from 'src/app/user-security/servicios/token.service';
 
 @Component({
   selector: 'app-experiencia-y-educacion',
@@ -18,14 +19,24 @@ export class ExperienciaYEducacionComponent implements OnInit {
     public educaciones: Educacion[] | undefined;
     public editEducacion: Educacion | undefined;  
     public deleteEducacion: Educacion | undefined;
+    
+    isLogged = false;
 
   constructor(
     private experienciaService: ExperienciaService, 
-    private educacionService: EducacionService) {}
+    private educacionService: EducacionService,
+    private tokenService: TokenService) {}
 
   ngOnInit() {
     this.getExperiencias();
     this.getEducaciones();
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+    }
+    else {
+      this.isLogged =false;
+    }
+    
   }
 
   public getExperiencias(): void {

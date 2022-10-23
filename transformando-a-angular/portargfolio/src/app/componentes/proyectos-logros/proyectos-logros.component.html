@@ -4,15 +4,15 @@
         <div class="col-6"><h6>Proyectos  
             <!-- <a style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Edit"><i class="fa-solid fa-pen-to-square"></i></a> -->
 
-            <a style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Add" (click)="onOpenModal(null!, 'add')" data-bs-toggle="modal" data-bs-target="#addProyectoModal"><i class="fa-regular fa-square-plus"></i></a>
+            <a *ngIf="isLogged" style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Add" (click)="onOpenModal(null!, 'add')" data-bs-toggle="modal" data-bs-target="#addProyectoModal"><i class="fa-regular fa-square-plus"></i></a>
             
         </h6></div>
         <p class="col-12"><small><i>La mayoría de estos proyectos se han realizado este año en diferentes cursos de programación:</i></small></p></div>
     <div *ngFor="let proyecto of proyectos">
         <div class="col-4"><span class="text-start fs-5"><strong>{{proyecto?.projectName}} </strong>
         </span> - <span class="text-end text-muted"><i> {{proyecto?.anio}}</i>
-            <a style="color: #D2D7D5;" (click)="onOpenModal(proyecto, 'edit')" class="btn" data-placement="top" data-origina-title="Edit"  data-bs-toggle="modal" data-bs-target="#updateProyectoModal"><i class="fa-solid fa-pen-to-square"></i></a>
-            <a style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Delete" (click)="onOpenModal(proyecto, 'delete')"  data-bs-toggle="modal" data-bs-target="#deleteProyectoModal"><i class="fa-solid fa-eraser"></i></a>
+            <a *ngIf="isLogged" style="color: #D2D7D5;" (click)="onOpenModal(proyecto, 'edit')" class="btn" data-placement="top" data-origina-title="Edit"  data-bs-toggle="modal" data-bs-target="#updateProyectoModal"><i class="fa-solid fa-pen-to-square"></i></a>
+            <a *ngIf="isLogged" style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Delete" (click)="onOpenModal(proyecto, 'delete')"  data-bs-toggle="modal" data-bs-target="#deleteProyectoModal"><i class="fa-solid fa-eraser"></i></a>
         </span>
         </div>
         <div class="row">

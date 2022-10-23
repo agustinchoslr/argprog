@@ -3,7 +3,7 @@
     <h6>Experiencias
         <!-- <a style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Edit"><i class="fa-solid fa-pen-to-square"></i></a> -->
         
-        <a style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Add" (click)="onOpenModal(null!, 'add')" data-bs-toggle="modal" data-bs-target="#addExperienciaModal"><i class="fa-regular fa-square-plus"></i></a>
+        <a *ngIf="isLogged" style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Add" (click)="onOpenModal(null!, 'add')" data-bs-toggle="modal" data-bs-target="#addExperienciaModal"><i class="fa-regular fa-square-plus"></i></a>
     </h6> 
 
     <div class="row">
@@ -11,9 +11,9 @@
             <div class="conjunto"><span class="text-start">{{experiencia?.anioInicio}} - {{experiencia?.anioFin}}</span>
                 <span class="text-end">{{experiencia?.empresa}}</span></div>
             <div class="text-center" (click)="onOpenModal(experiencia, 'edit')">
-                <a style="color: #414242;" class="btn" data-placement="top" data-origina-title="Edit"  data-bs-toggle="modal" data-bs-target="#updateExperienciaModal"><i class="fa-solid fa-pen-to-square"></i></a>        
+                <a *ngIf="isLogged" style="color: #414242;" class="btn" data-placement="top" data-origina-title="Edit"  data-bs-toggle="modal" data-bs-target="#updateExperienciaModal"><i class="fa-solid fa-pen-to-square"></i></a>        
             <strong>{{experiencia?.cargo}}</strong>
-                <a style="color: #414242;" class="btn" data-placement="top" data-origina-title="Delete"  (click)="onOpenModal(experiencia, 'delete')"  data-bs-toggle="modal" data-bs-target="#deleteExperienciaModal"><i class="fa-solid fa-eraser"></i></a>                    
+                <a *ngIf="isLogged" style="color: #414242;" class="btn" data-placement="top" data-origina-title="Delete"  (click)="onOpenModal(experiencia, 'delete')"  data-bs-toggle="modal" data-bs-target="#deleteExperienciaModal"><i class="fa-solid fa-eraser"></i></a>                    
             </div>
             <div><span> {{experiencia?.descripcion}}</span></div>
         </div></div>
@@ -24,7 +24,7 @@
 <h6>Educación 
     <!-- <a style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Edit"><i class="fa-solid fa-pen-to-square"></i></a> -->
         
-    <a style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Add" (click)="onOpenModalEduc(null!, 'add')" data-bs-toggle="modal" data-bs-target="#addEducacionModal"><i class="fa-regular fa-square-plus"></i></a>
+    <a *ngIf="isLogged" style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Add" (click)="onOpenModalEduc(null!, 'add')" data-bs-toggle="modal" data-bs-target="#addEducacionModal"><i class="fa-regular fa-square-plus"></i></a>
 </h6> 
 
 <div class="row">
@@ -32,9 +32,9 @@
         <div class="conjunto"><span class="text-start">{{educacion?.anioInicio}} - {{educacion?.anioFin}}</span>
             <span class="text-end">{{educacion?.institucion}}</span></div>
         <div class="text-center" (click)="onOpenModalEduc(educacion, 'edit')">
-                        <a style="color: #414242;" class="btn" data-placement="top" data-origina-title="Edit" data-bs-toggle="modal" data-bs-target="#updateEducacionModal"><i class="fa-solid fa-pen-to-square"></i></a>   
+                        <a *ngIf="isLogged" style="color: #414242;" class="btn" data-placement="top" data-origina-title="Edit" data-bs-toggle="modal" data-bs-target="#updateEducacionModal"><i class="fa-solid fa-pen-to-square"></i></a>   
             <strong>{{educacion?.carrera}}</strong>        
-                        <a style="color: #414242;" class="btn" data-placement="top" data-origina-title="Delete" (click)="onOpenModalEduc(educacion, 'delete')"  data-bs-toggle="modal" data-bs-target="#deleteEducacionModal"><i class="fa-solid fa-eraser"></i></a> 
+                        <a *ngIf="isLogged" style="color: #414242;" class="btn" data-placement="top" data-origina-title="Delete" (click)="onOpenModalEduc(educacion, 'delete')"  data-bs-toggle="modal" data-bs-target="#deleteEducacionModal"><i class="fa-solid fa-eraser"></i></a> 
             </div>
         <div> {{educacion?.descripcion}}</div>
     </div></div>

@@ -3,7 +3,7 @@
 
     <!-- <a style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Edit"><i class="fa-solid fa-pen-to-square"></i></a> -->
 
-    <a style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Add" (click)="onOpenModal(null!, 'add')" data-bs-toggle="modal" data-bs-target="#addSkillModal"><i class="fa-regular fa-square-plus"></i></a>
+    <a *ngIf="isLogged" style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Add" (click)="onOpenModal(null!, 'add')" data-bs-toggle="modal" data-bs-target="#addSkillModal"><i class="fa-regular fa-square-plus"></i></a>
 </h6>
     <!-- INTENTO DE GRAFICO DE PROGRESO CIRCULAR, VA CON EL CSS COMENTADO 
     
@@ -30,21 +30,21 @@
     [subtitleFontSize]="'18'"
   >
 </circle-progress>
-        <a style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Delete" (click)="onOpenModal(skill, 'delete')"  data-bs-toggle="modal" data-bs-target="#deleteExperienciaModal"><i class="fa-solid fa-eraser"></i></a>
+        <a *ngIf="isLogged" style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Delete" (click)="onOpenModal(skill, 'delete')"  data-bs-toggle="modal" data-bs-target="#deleteExperienciaModal"><i class="fa-solid fa-eraser"></i></a>
         <img src="https://i.postimg.cc/qRbZtcSz/linea-separadora2.png">
 </span></div>             
 
 
     <div class="row">
     </div> <BR>
-    <span><H6>Idiomas</H6></span>
+    <span><H6>Idiomas</H6> <i *ngIf="isLogged"> Esta sección está hardcodeada como muestra de que también puede realizarse así.</i></span>
         <div class="progress">
             <div class="progress-bar progress-bar-striped progress-bar-animated col-6" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"><span>
-                <a style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>   
+                <a *ngIf="isLogged" style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>   
 
                 <b>Inglés</b>
             
-                <a style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Delete"><i class="fa-solid fa-eraser"></i></a> </span>
+                <a *ngIf="isLogged" style="color: #D2D7D5;" class="btn" data-placement="top" data-origina-title="Delete"><i class="fa-solid fa-eraser"></i></a> </span>
             </div> <br>
         </div><br>
         <div class="progress">

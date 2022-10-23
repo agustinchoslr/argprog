@@ -1,3 +1,4 @@
+// REGISTRO DE NUEVOS USUARIOS DESHABILITADO. LÍNEAS COMENTADAS
 // import { Component, OnInit } from '@angular/core';
 // import { NuevoUsuario } from '../nuevo-usuario';
 // import { AuthService } from '../servicios/auth.service';

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Skill } from 'src/app/servicios/skill';
 import { SkillService } from 'src/app/servicios/skill.service';
+import { TokenService } from 'src/app/user-security/servicios/token.service';
 
 @Component({
   selector: 'app-aptitudes',
@@ -14,11 +15,18 @@ export class AptitudesComponent implements OnInit {
   public editSkill: Skill | undefined;  
   public deleteSkill: Skill | undefined;
 
-  constructor(private skillService: SkillService) {}
+  isLogged = false;
+
+  constructor(private skillService: SkillService,
+     private tokenService: TokenService) {}
 
   ngOnInit() {
     this.getSkills();
-    
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }    
   }
 
   public getSkills(): void {
