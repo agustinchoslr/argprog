@@ -102,5 +102,8 @@
       }
     }
   },
-  "defaultProject": "portargfolio"
+  "defaultProject": "portargfolio",
+  "cli": {
+    "analytics": false
+  }
 }
