@@ -24,7 +24,7 @@ Know Issue: Deberá recargar la página luego de loguearse presionando F5.
 
 Tecnologías utilizadas
 
-Fueron utilizadas las siguientes herramientas (en este FrontEnd, existe el backend también):
+Fueron utilizadas las siguientes herramientas (en este FrontEnd, existe el backend también: https://github.com/agustinchoslr/portargfolio_backend ):
 
 *-Node
 *-Github
