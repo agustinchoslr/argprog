@@ -30,10 +30,17 @@ Tecnologías utilizadas
 Fueron utilizadas las siguientes herramientas (en este FrontEnd, existe el backend también: https://github.com/agustinchoslr/portargfolio_backend ):
 
 *-Node
+
 *-Github
+
 *-Angular (https://angular.io/): versión 13.1.4
+
 *-Bootstrap CSS (https://getbootstrap.com/): versión 5.1.3 .
+
 *-Ng circle-progress (https://github.com/bootsoon/ng-circle-progress#readme): versión 1.6.0 .
+
 *-Heroku Server
+
 *-Firebase
+
 *-SaSS
