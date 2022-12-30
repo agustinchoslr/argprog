@@ -18,12 +18,11 @@ Para acceder como administrador:
 
 La url donde está deployado el front es: 
 https://argprog-24b53.web.app/
-Tener en cuenta que, dado que el back está en Heroku, este vence su versión gratuita el 28/10/22 y en su servicio gratuito "duerme" el alojamiento hasta que se hacen peticiones, de manera que se deberá reintentar en el primer ingreso.
 
 Know Issue: Deberá recargar la página luego de loguearse presionando F5.
-----------------------------------------------------------
+____________________________________________
 Actualización 29/12/22 = Backend cambiado de Heroku a koyeb debido a que Heroku dejó de ser gratuito.
------------------------------------------------------------
+____________________________________________
 
 
 Tecnologías utilizadas
