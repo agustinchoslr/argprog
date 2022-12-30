@@ -21,6 +21,10 @@ https://argprog-24b53.web.app/
 Tener en cuenta que, dado que el back está en Heroku, este vence su versión gratuita el 28/10/22 y en su servicio gratuito "duerme" el alojamiento hasta que se hacen peticiones, de manera que se deberá reintentar en el primer ingreso.
 
 Know Issue: Deberá recargar la página luego de loguearse presionando F5.
+----------------------------------------------------------
+Actualización 29/12/22 = Backend cambiado de Heroku a koyeb debido a que Heroku dejó de ser gratuito.
+-----------------------------------------------------------
+
 
 Tecnologías utilizadas
 
@@ -29,6 +33,8 @@ Fueron utilizadas las siguientes herramientas (en este FrontEnd, existe el backe
 *-Node
 *-Github
 *-Angular (https://angular.io/): versión 13.1.4
-*-Bootstrap (https://getbootstrap.com/): versión 5.1.3 .
+*-Bootstrap CSS (https://getbootstrap.com/): versión 5.1.3 .
 *-Ng circle-progress (https://github.com/bootsoon/ng-circle-progress#readme): versión 1.6.0 .
 *-Heroku Server
+*-Firebase
+*-SaSS
